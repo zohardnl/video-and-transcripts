@@ -1,5 +1,19 @@
-<div class="meeting-view">
-  <div class="meeting-view__video" *ngIf="id">
-    <video [src]="meetingUrl"></video>
+<div class="meeting-view" fxLayout="column" fxLayoutGap="1rem">
+  <div class="meeting-view__video" *ngIf="_id" fxLayout="row" fxLayoutAlign="center center">
+    <video [src]="meetingUrl" controls width="50%" height="100%"></video>
+  </div>
+
+  <div class="meeting-view__transcript" *ngIf="_transcript?.length" fxLayout="column" fxLayoutGap="1rem">
+    <ng-container *ngFor="let row of _transcript">
+      <div fxLayoutGap="0.5rem" fxLayout="row" fxLayoutAlign="start end" class="meeting-view__transcript__snippet">
+        <span class="meeting-view__transcript__snippet__color"></span>
+        <div fxLayout="column" fxLayoutGap="1rem">
+          <span class="meeting-view__transcript__speaker">{{row.speaker}}</span>
+          <div class="meeting-view__transcript__snippet__text">
+            <span>{{row.snippet}}</span>
+          </div>
+        </div>
+      </div>
+    </ng-container>
   </div>
 </div>

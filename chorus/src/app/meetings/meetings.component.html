@@ -1,3 +1,10 @@
-<div class="meetings" fxLayout="row" fxLayoutAlign="center center">
-  <app-meeting-view [id]="meetingId"></app-meeting-view>
+<div class="meeting" fxLayout="column" fxLayoutAlign="space-between center" fxFill>
+  <div class="meeting-view-container" fxLayout="column" fxLayoutAlign="start center">
+    <h1 class="meeting-view-container__title">{{meetingTitle}}</h1>
+    <app-meeting-view [id]="meetingId"></app-meeting-view>
+  </div>
+
+  <div class="meeting__logo" fxLayout="row" fxLayoutAlign="center center">
+    <img class="meeting__logo__image" src="https://static.chorus.ai/images/chorus-logo.svg" alt="chorus_svg">
+  </div>
 </div>

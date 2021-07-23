@@ -1,0 +1,27 @@
+.meeting {
+  &-view-container {
+    background: white;
+    border: 1px solid #D7DADE;
+    border-radius: 5px;
+    margin-top: 5rem;
+    width: 43%;
+    height: 56%;
+    padding: 2rem;
+    overflow: hidden;
+
+    &__title {
+      font-size: 26px;
+      text-align: center;
+      font-weight: normal;
+    }
+  }
+
+  &__logo {
+    width: 100%;
+    border-bottom: 4px solid #00A7D1;
+
+    &__image {
+      padding-bottom: 1rem;
+    }
+  }
+}
