@@ -4,36 +4,63 @@
 }
 
 .meeting-view {
+  &__video {
+    @media(max-width: 767px) {
+      width: 70%;
+    }
+
+    width: 50%;
+    height: 100%;
+  }
+
   &__transcript {
     padding: 0 1rem;
     overflow: hidden auto;
 
-    &__speaker {
+    .container {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-end;
+      gap: 1rem;
+
+      &.rep-container {
+        direction: rtl;
+      }
+
+      .speaker-area {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .cust, .rep {
+        width: 2.8rem;
+        height: 2.8rem;
+        border-radius: 10rem;
+      }
+
+      .cust {
+        background: rgba(238, 110, 255, 0.10);
+        border: 1px solid #EE6EFF;
+      }
+
+      .rep {
+        background: rgba(0, 167, 209, 0.10);
+        border: 1px solid #00A7D1;
+      }
+    }
+
+    .rep-speaker, .cust-speaker {
       font-size: 12px;
       color: #333333;
     }
 
-    &__snippet {
-      &__color {
-        width: 2.8rem;
-        height: 2.8rem;
-        background: rgba(238, 110, 255, 0.10);
-        border: 1px solid #EE6EFF;
-        border-radius: 10rem;
-      }
-
-      &__text {
-        background: #F7F7F7;
-        border-radius: 10rem;
-        padding: 4px 6px;
-        width: max-content;
-        word-break: break-word;
-
-        span {
-          font-size: 15px;
-          color: #333333;
-        }
-      }
+    .rep-text, .cust-text {
+      background: #F7F7F7;
+      border-radius: 10rem;
+      padding: 4px 6px;
+      font-size: 15px;
+      color: #333333;
     }
   }
 }

@@ -1,10 +1,17 @@
 <div class="meeting" fxLayout="column" fxLayoutAlign="space-between center" fxFill>
   <div class="meeting-view-container" fxLayout="column" fxLayoutAlign="start center">
-    <h1 class="meeting-view-container__title">{{meetingTitle}}</h1>
-    <app-meeting-view [id]="meetingId"></app-meeting-view>
+    <ng-container *ngIf="meetingId && transcriptData?.length;else noVideoExist">
+      <h1 class="meeting-view-container__title">{{meetingTitle}}</h1>
+      <app-meeting-view [meetingId]="meetingId" [transcriptData]="transcriptData"></app-meeting-view>
+    </ng-container>
   </div>
 
   <div class="meeting__logo" fxLayout="row" fxLayoutAlign="center center">
     <img class="meeting__logo__image" src="https://static.chorus.ai/images/chorus-logo.svg" alt="chorus_svg">
   </div>
 </div>
+
+<ng-template #noVideoExist>
+  <span>No Video Exist</span>
+</ng-template>
+

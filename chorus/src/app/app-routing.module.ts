@@ -4,7 +4,12 @@ import {RouterModule, Routes} from '@angular/router';
 const routes: Routes = [
   {
     path: '',
+    pathMatch: 'full',
     loadChildren: () => import('./meetings/meetings.module').then(m => m.MeetingsModule)
+  },
+  {
+    path: '**',
+    redirectTo: ''
   }
 ];
 
