@@ -5,15 +5,15 @@
 
 .meeting-view {
   &__video {
-    //@media(max-width: 767px) {
-    //  width: 70%;
-    //}
+    @media(max-width: 767px) {
+      width: 70%;
+    }
 
     width: 50%;
     height: 100%;
   }
 
-  &__transcripts{
+  &__transcripts {
     padding: 0 1rem;
     overflow: hidden auto;
   }

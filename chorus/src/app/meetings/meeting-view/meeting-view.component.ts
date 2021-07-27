@@ -49,8 +49,6 @@ export class MeetingViewComponent implements OnInit, AfterViewInit, OnDestroy {
 
       return prev;
     }, {});
-
-    console.log(this.mappedTranscript);
   }
 
   ngAfterViewInit() {
