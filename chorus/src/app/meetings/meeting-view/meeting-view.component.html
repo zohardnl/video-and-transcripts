@@ -6,9 +6,12 @@
     ></video>
   </div>
 
-  <ng-container *ngIf="_transcriptData?.length && videoIsValid">
-    <div class="meeting-view__transcript" fxLayout="column" fxLayoutGap="1rem" #meetingView></div>
-  </ng-container>
+  <div *ngIf="transcriptData?.length && videoIsValid" class="meeting-view__transcripts" fxLayout="column"
+       fxLayoutGap="1rem">
+    <ng-container *ngFor="let transcript of activeTranscripts$ | async">
+      <app-transcript [transcript]="transcript"></app-transcript>
+    </ng-container>
+  </div>
 </div>
 
 <ng-template #videoNoValid>

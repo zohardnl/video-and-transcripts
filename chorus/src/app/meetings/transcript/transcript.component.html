@@ -1,0 +1,17 @@
+<div class="transcript" fxLayout="row"
+     fxLayoutAlign="start end"
+     *ngIf="(transcript.speaker | lowercase) as speaker"
+     [ngClass]="speaker">
+  <span class="transcript__color" [ngClass]="speaker"></span>
+  <div fxLayout="column" fxLayoutGap="0.5rem">
+        <span class="transcript__speaker">
+            {{transcript.speaker}}
+        </span>
+    <div class="transcript__text">
+          <span class="transcript__text__field">
+              {{transcript.snippet}}
+          </span>
+    </div>
+  </div>
+</div>
+

@@ -6,12 +6,14 @@ import {MeetingsComponent} from './meetings.component';
 import {FlexModule} from "@angular/flex-layout";
 import {HttpClientModule} from "@angular/common/http";
 import {MeetingService} from "../../core/services/meeting.service";
+import { TranscriptComponent } from './transcript/transcript.component';
 
 
 @NgModule({
   declarations: [
     MeetingViewComponent,
-    MeetingsComponent
+    MeetingsComponent,
+    TranscriptComponent
   ],
   imports: [
     CommonModule,

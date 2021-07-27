@@ -13,8 +13,8 @@ import {Transcript} from "./meetings.model";
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MeetingsComponent implements OnInit {
-  meetingId: string;
-  transcriptData: Transcript[];
+  meetingId: string = '';
+  transcriptData: Transcript[] = [];
   meetingTitle: string = 'Moment from meeting with Two Pillars';
 
   constructor(
@@ -39,5 +39,4 @@ export class MeetingsComponent implements OnInit {
       }),
       untilDestroyed(this)).subscribe();
   }
-
 }

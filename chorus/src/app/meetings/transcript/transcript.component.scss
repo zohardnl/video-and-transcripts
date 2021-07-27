@@ -1,0 +1,39 @@
+
+.transcript {
+  &.rep {
+    direction: rtl;
+  }
+
+  &__color {
+    width: 2.8rem;
+    height: 2.8rem;
+    border-radius: 10rem;
+    margin-inline-end: 1rem;
+
+    &.cust {
+      background: rgba(238, 110, 255, 0.10);
+      border: 1px solid #EE6EFF;
+    }
+
+    &.rep {
+      background: rgba(0, 167, 209, 0.10);
+      border: 1px solid #00A7D1;
+    }
+  }
+
+  &__speaker {
+    font-size: 12px;
+    color: #333333;
+  }
+
+  &__text {
+    background: #F7F7F7;
+    border-radius: 10rem;
+    padding: 4px 6px;
+
+    &__field {
+      font-size: 15px;
+      color: #333333;
+    }
+  }
+}
