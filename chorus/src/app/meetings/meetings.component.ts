@@ -1,9 +1,10 @@
-import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {UntilDestroy, untilDestroyed} from "@ngneat/until-destroy";
 import {MeetingService} from "../../core/services/meeting.service";
 import {catchError, filter, switchMap, tap} from "rxjs/operators";
 import {Transcript} from "./meetings.model";
+import {BehaviorSubject} from "rxjs";
 
 @UntilDestroy()
 @Component({
@@ -13,15 +14,17 @@ import {Transcript} from "./meetings.model";
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MeetingsComponent implements OnInit {
-  meetingId: string = '';
-  transcriptData: Transcript[] = [];
+  meetingId: string;
   meetingTitle: string = 'Moment from meeting with Two Pillars';
+
+  _data = new BehaviorSubject<Transcript[]>([]);
+  data = this._data.asObservable();
 
   constructor(
     private meetingService: MeetingService,
-    private cdr: ChangeDetectorRef,
     private activatedRoute: ActivatedRoute) {
   }
+
 
   ngOnInit(): void {
     this.activatedRoute.queryParams.pipe(
@@ -31,8 +34,7 @@ export class MeetingsComponent implements OnInit {
         return this.meetingService.getTranscript(this.meetingId);
       }),
       tap(data => {
-        this.transcriptData = data;
-        this.cdr.markForCheck();
+        this._data.next(data);
       }),
       catchError(err => {
         throw err;

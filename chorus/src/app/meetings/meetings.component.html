@@ -1,8 +1,10 @@
 <div class="meeting" fxLayout="column" fxLayoutAlign="space-between center" fxFill>
   <div class="meeting-view-container" fxLayout="column" fxLayoutAlign="start center">
-    <ng-container *ngIf="meetingId && transcriptData?.length;else noVideoExist">
-      <h1 class="meeting-view-container__title">{{meetingTitle}}</h1>
-      <app-meeting-view [meetingId]="meetingId" [transcriptData]="transcriptData"></app-meeting-view>
+    <ng-container *ngIf="(data | async) as data">
+      <ng-container *ngIf="meetingId && data?.length;else noVideoExist">
+        <h1 class="meeting-view-container__title">{{meetingTitle}}</h1>
+        <app-meeting-view [meetingId]="meetingId" [transcriptData]="data"></app-meeting-view>
+      </ng-container>
     </ng-container>
   </div>
 
